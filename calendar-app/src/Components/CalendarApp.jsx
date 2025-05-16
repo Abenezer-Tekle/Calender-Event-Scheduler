@@ -1,4 +1,27 @@
+import { useState } from "react";
+
 const CalendarApp = () => {
+  const daysOfWeek = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+  const monthOfYear = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ]
+
+  const currentDate = new Date()
+
+  const [currentMonth, setCurrentMonth] = useState(currentDate.getMonth())
+  const [currentYear, setCurrentYear] = useState(currentDate.getFullYear())
+  console.log(currentMonth, currentYear, currentDate)
   return (
     <div className="calendar-app">
       <div className="calendar">
@@ -58,8 +81,20 @@ const CalendarApp = () => {
         <div className="event-popup">
           <div className="time-input">
             <div className="event-popup-time">Time</div>
-            <input type="number" name="hours" min={0} max={24} className="hours" />
-            <input type="number" name="minutes" min={0} max={60} className="minutes" />
+            <input
+              type="number"
+              name="hours"
+              min={0}
+              max={24}
+              className="hours"
+            />
+            <input
+              type="number"
+              name="minutes"
+              min={0}
+              max={60}
+              className="minutes"
+            />
           </div>
           <textarea placeholder="Enter Event Text (Maximum 60 Characters)"></textarea>
           <button className="event-popup-btn">Add Event</button>
@@ -80,7 +115,7 @@ const CalendarApp = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CalendarApp
+export default CalendarApp;
